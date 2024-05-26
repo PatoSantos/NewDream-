@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class GridMap : MonoBehaviour
 {
-    [SerializeField] private Transform topLeft;
-    [SerializeField] private Transform bottomRight;
+    [SerializeField] private Transform top;
     [SerializeField] private int columns = 50;
     [SerializeField] private int rows = 30;
     [SerializeField] private float cellWidth;
@@ -38,8 +37,8 @@ public class GridMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cellWidth = (float)(bottomRight.position.x - topLeft.position.x) / columns;
-        cellHeight = (float)(topLeft.position.y - bottomRight.position.y) / rows;
+        cellWidth = (float) top.position.x / columns;
+        cellHeight = (float) top.position.y / rows;
         CreateGrid();
     }
 
@@ -56,111 +55,63 @@ public class GridMap : MonoBehaviour
         {
             for (int y = 0; y < rows; y++)
             {
-                Vector3 worldPoint = new Vector3(x * cellWidth + topLeft.position.x , y * cellHeight + bottomRight.position.y, 0);
+                Vector3 worldPoint = new Vector3(x * cellWidth, y * cellHeight, 0);
                 bool walkable = !Physics.CheckSphere(worldPoint, cellWidth / 2, obstacleLayer);
                 nodes[x, y] = new Node(walkable, worldPoint, x, y);
             }
         }
     }
 
-    public Node GetNodeFromWorldPoint(Vector3 worldPosition)
+    public Node getNearestNode(Vector3 worldPosition)
     {
-        int x = Mathf.RoundToInt((worldPosition.x - topLeft.position.x) / cellWidth);
-        int y = Mathf.RoundToInt(worldPosition.y - bottomRight.position.y / cellHeight);
-        Debug.Log(x.ToString() + " " + y.ToString());
-        return nodes[x, y];
+        int Xpos = Mathf.RoundToInt(worldPosition.x / cellWidth);
+        int Ypos = Mathf.RoundToInt(worldPosition.y / cellHeight);
+        return nodes[Xpos, Ypos];
     }
 
-    public List<Node> FindPath(Vector3 startPos, Vector3 targetPos)
+    public List<Node> getPath(Vector3 startPos, Vector3 endPos)
     {
-        Node startNode = GetNodeFromWorldPoint(startPos);
-        Node targetNode = GetNodeFromWorldPoint(targetPos);
+        Node startNode = getNearestNode(startPos);
+        Node endNode = getNearestNode(endPos);
 
-        List<Node> openSet = new List<Node>();
-        HashSet<Node> closedSet = new HashSet<Node>();
+        List<Node> openList = new List<Node>();
+        List<Node> closedList = new List<Node>();
 
         startNode.cost = 0;
-        openSet.Add(startNode);
+        startNode.parent = startNode;
 
-        //Debug.Log(openSet.Count);
+        openList.Add(startNode);
 
-        while (openSet.Count > 0)
+        while (openList.Count > 0)
         {
-            Node currentNode = openSet.OrderBy(n => n.cost).First();
-            openSet.Remove(currentNode);
-            closedSet.Add(currentNode);
+            openList = openList.OrderBy(n => n.cost).ToList();
+            Node currentNode = openList[0];
+            openList.RemoveAt(0);
 
-            if (currentNode == targetNode)
+            for (int i = -1; i <= 1; i++)
             {
-                return RetracePath(startNode, targetNode);
-            }
-
-            foreach (Node neighbor in GetNeighbors(currentNode))
-            {
-                if (!neighbor.walkable || closedSet.Contains(neighbor))
-                    continue;
-
-                int newCost = currentNode.cost + GetDistance(currentNode, neighbor);
-                if (newCost < neighbor.cost || !openSet.Contains(neighbor))
+                for (int j = -1; j <= 1; j++)
                 {
-                    neighbor.cost = newCost;
-                    neighbor.parent = currentNode;
+                    if (!(i == 0 && j == 0))
+                    {
+                        if (currentNode == endNode)
+                        {
 
-                    if (!openSet.Contains(neighbor))
-                        openSet.Add(neighbor);
+                        }
+                    }
                 }
             }
         }
 
-        return null;
+
+        return new List<Node>();
     }
 
-    List<Node> GetNeighbors(Node node)
+    float calculateCost(Node n)
     {
-        List<Node> neighbors = new List<Node>();
-
-        for (int x = -1; x <= 1; x++)
-        {
-            for (int y = -1; y <= 1; y++)
-            {
-                if (x == 0 && y == 0)
-                    continue;
-
-                int checkX = node.gridX + x;
-                int checkY = node.gridY + y;
-
-                if (checkX >= 0 && checkX < cellWidth && checkY >= 0 && checkY < cellHeight)
-                {
-                    neighbors.Add(nodes[checkX, checkY]);
-                }
-            }
-        }
-
-        return neighbors;
+        return 0;
     }
 
-    List<Node> RetracePath(Node startNode, Node endNode)
-    {
-        List<Node> path = new List<Node>();
-        Node currentNode = endNode;
-
-        while (currentNode != startNode)
-        {
-            path.Add(currentNode);
-            currentNode = currentNode.parent;
-        }
-
-        path.Reverse();
-        return path;
-    }
-
-    int GetDistance(Node nodeA, Node nodeB)
-    {
-        int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
-        int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
-
-        return dstX + dstY;
-    }
 
     private void OnDrawGizmos()
     {
