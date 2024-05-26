@@ -55,7 +55,8 @@ public class ShamanUI : MonoBehaviour
 
     public void CloseMenu()
     {
-        Building.SetActive(false);
+        //Building.SetActive(false);
+        GameManager.Instance.ExitPanel();
     }
 
     public void Caja_Open()

@@ -36,7 +36,8 @@ public class SherrifUI : MonoBehaviour
 
     public void CloseMenu()
     {
-        Building.SetActive(false);
+        //Building.SetActive(false);
+        GameManager.Instance.ExitPanel();
     }
 
     public void C1_Open()

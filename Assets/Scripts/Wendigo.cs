@@ -30,8 +30,7 @@ public class Wendigo : MonoBehaviour
 
     Vector2 directionToTarget;
     RaycastHit2D hit;
-    public float timerInterval = 0.5f; // Timer interval in seconds
-    private float timer = 0f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -57,14 +56,14 @@ public class Wendigo : MonoBehaviour
                         targetPosition = new Vector3(UnityEngine.Random.Range(20.0f, 80.0f), UnityEngine.Random.Range(10.0f, 40.0f));
                         hit = Physics2D.CircleCast(targetPosition, grid.cellHeight, Vector2.zero, obstacleLayer);
                     } while (hit.collider != null && hit.collider.CompareTag("Building"));
-                    Debug.Log("Next pos: " + targetPosition);
+                    //Debug.Log("Next pos: " + targetPosition);
                     do
                     {
                         UpdatePath();
                     } while (path[0].worldPosition == targetPosition);
 
                 }
-                Debug.Log("TargetIndex: " + targetIndex);
+                //Debug.Log("TargetIndex: " + targetIndex);
                 next = path[targetIndex].worldPosition;
                 direction = next - transform.position;
                 direction.Normalize();
@@ -84,7 +83,7 @@ public class Wendigo : MonoBehaviour
                 }
                 break;
             case State.FOLLOW:
-                Debug.Log("TargetIndex: " + targetIndex);
+                //Debug.Log("TargetIndex: " + targetIndex);
                 next = path[targetIndex > path.Count ? path.Count - 1 : targetIndex].worldPosition;
                 direction = next - transform.position;
                 direction.Normalize();
@@ -102,12 +101,12 @@ public class Wendigo : MonoBehaviour
                     } while (hit.collider != null && hit.collider.CompareTag("Building"));
                     UpdatePath();
                     state = State.PROWL;
-                    Debug.Log(state);
+                    //Debug.Log(state);
                 }
                 break;
 
             case State.CHASE:
-                Debug.Log("TargetIndex: " + targetIndex);
+                //Debug.Log("TargetIndex: " + targetIndex);
                 next = path[targetIndex > path.Count ? path.Count - 1 : targetIndex].worldPosition;
                 direction = next - transform.position;
                 direction.Normalize();

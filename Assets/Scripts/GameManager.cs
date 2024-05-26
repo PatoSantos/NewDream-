@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject activePanel;
+    public bool isPanelActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isPanelActive && Input.GetKey(KeyCode.Escape))
+        {
+            
+        }
+    }
+
+    public void ExitPanel()
+    {
+        if (activePanel != null)
+        {
+            activePanel.gameObject.SetActive(false);
+        }
+        isPanelActive = false;
     }
 }
