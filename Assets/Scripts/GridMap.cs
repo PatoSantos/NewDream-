@@ -69,7 +69,7 @@ public class GridMap : MonoBehaviour
         return nodes[Xpos, Ypos];
     }
 
-    public List<Node> getPath(Vector3 startPos, Vector3 endPos)
+    public List<Node> GetPath(Vector3 startPos, Vector3 endPos)
     {
         Node startNode = getNearestNode(startPos);
         Node endNode = getNearestNode(endPos);
@@ -94,10 +94,11 @@ public class GridMap : MonoBehaviour
                 {
                     if (!(i == 0 && j == 0))
                     {
-                        if (currentNode == endNode)
+                        if (nodes[currentNode.gridX+i, currentNode.gridY+j] == endNode)
                         {
-
+                            return TracePath();
                         }
+
                     }
                 }
             }
@@ -107,7 +108,12 @@ public class GridMap : MonoBehaviour
         return new List<Node>();
     }
 
-    float calculateCost(Node n)
+    public List<Node> TracePath()
+    {
+        return null;
+    }
+
+    float CalculateCost(Node n)
     {
         return 0;
     }
