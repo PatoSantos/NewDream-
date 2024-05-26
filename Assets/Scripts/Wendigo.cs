@@ -73,7 +73,7 @@ public class Wendigo : MonoBehaviour
                 {
                     targetIndex++;
                 }
-                if (Vector3.Distance(transform.position, targetPosition) <= 0.15f || targetIndex >= path.Count)
+                if (Vector3.Distance(transform.position, targetPosition) <= 0.2f || targetIndex >= path.Count)
                 {
                     do
                     {
@@ -84,6 +84,7 @@ public class Wendigo : MonoBehaviour
                 }
                 break;
             case State.FOLLOW:
+                Debug.Log("TargetIndex: " + targetIndex);
                 next = path[targetIndex > path.Count ? path.Count - 1 : targetIndex].worldPosition;
                 direction = next - transform.position;
                 direction.Normalize();
@@ -92,7 +93,7 @@ public class Wendigo : MonoBehaviour
                 {
                     targetIndex++;
                 }
-                if (Vector3.Distance(transform.position, targetPosition) <= 0.15f)
+                if (Vector3.Distance(transform.position, targetPosition) <= 2f || targetIndex >= path.Count)
                 {
                     do
                     {
@@ -106,17 +107,21 @@ public class Wendigo : MonoBehaviour
                 break;
 
             case State.CHASE:
+                Debug.Log("TargetIndex: " + targetIndex);
                 next = path[targetIndex > path.Count ? path.Count - 1 : targetIndex].worldPosition;
                 direction = next - transform.position;
                 direction.Normalize();
                 rb.velocity = direction * speed;
-                if (Vector3.Distance(transform.position, next) <= 0.15f)
+                if (Vector3.Distance(transform.position, next) <= 2f)
                 {
                     targetIndex++;
                 }
-                if (Vector3.Distance(target.position, targetPosition) > 0.15f)
+                if (Vector3.Distance(target.position, targetPosition) > 2f)
                 {
                     targetPosition = target.position;
+                    UpdatePath();
+                }
+                if (targetIndex >= path.Count) {
                     UpdatePath();
                 }
                 break;
@@ -126,7 +131,7 @@ public class Wendigo : MonoBehaviour
 
     private void UpdateWendigo()
     {
-        /*directionToTarget = target.position - transform.position;
+        directionToTarget = target.position - transform.position;
         hit = Physics2D.Raycast(transform.position, directionToTarget, directionToTarget.magnitude, obstacleLayer);
         Debug.DrawLine(transform.position, target.position, hit.collider == null ? Color.green : Color.red);
         if (hit.collider != null && state == State.CHASE)
@@ -138,12 +143,13 @@ public class Wendigo : MonoBehaviour
             state = State.CHASE;
             targetPosition = target.position;
             UpdatePath();
-        }*/
+        }
     }
 
     void UpdatePath()
     {
-        path = grid.GetPath(transform.position, targetPosition);
+        List<GridMap.Node> tempPath = grid.GetPath(transform.position, targetPosition);
+        path = tempPath != null ? tempPath : path;
         Debug.Log(path[0].worldPosition);
         targetIndex = 0;
         //yield return new WaitForSeconds(0.5f);
