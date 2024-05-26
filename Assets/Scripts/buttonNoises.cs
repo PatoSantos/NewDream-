@@ -1,12 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ButtonNoises : MonoBehaviour
 {
     private int clickingTimes;
     public int clickingLimit;
-    [SerializeField]private AudioSource noise;
+    [SerializeField] private AudioSource noise;
     public GameObject soundBoxPrefab;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class ButtonNoises : MonoBehaviour
     public void onClickNoise()
     {
         clickingTimes++;
-        if(clickingTimes >= clickingLimit)
+        if (clickingTimes >= clickingLimit)
         {
             noise.Play();
             clickingTimes = 0;
