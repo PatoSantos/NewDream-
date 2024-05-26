@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class buttonNoises : MonoBehaviour
+public class ButtonNoises : MonoBehaviour
 {
     [SerializeField]private int clickingTimes;
     public int clickingLimit;

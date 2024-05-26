@@ -33,7 +33,7 @@ public class Wendigo : MonoBehaviour
     {
         while (true)
         {
-            path = grid.FindPath(transform.position, lastPos);
+            path = grid.GetPath(transform.position, lastPos);
             Debug.Log(path != null);
             targetIndex = 0;
             yield return new WaitForSeconds(0.5f);
