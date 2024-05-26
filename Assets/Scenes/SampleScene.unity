@@ -719,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &341525053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1416,7 +1416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
@@ -2158,7 +2157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
@@ -3087,7 +3085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
@@ -3237,7 +3234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 7001406189100461753, guid: e26676920b0fa4581b0687223f938596, type: 3}
@@ -3386,7 +3382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 6
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 7001406189100461753, guid: e26676920b0fa4581b0687223f938596, type: 3}
@@ -3536,7 +3531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
@@ -3640,7 +3634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1028001148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4074,7 +4068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
@@ -4708,7 +4701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 7
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 7151189260636582470, guid: c01eb6d04bea142618e3ad21a0272f33, type: 3}
@@ -5614,7 +5606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
@@ -7201,7 +7192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingTimes: 0
   clickingLimit: 5
   noise: {fileID: 0}
   soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
