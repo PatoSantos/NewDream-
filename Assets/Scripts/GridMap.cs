@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class GridMap : MonoBehaviour
@@ -10,7 +11,7 @@ public class GridMap : MonoBehaviour
     [SerializeField] private int columns = 50;
     [SerializeField] private int rows = 30;
     [SerializeField] private float cellWidth;
-    [SerializeField] private float cellHeight;
+    [SerializeField] public float cellHeight;
     [SerializeField] private LayerMask obstacleLayer;
 
     Node[,] nodes;
@@ -55,8 +56,17 @@ public class GridMap : MonoBehaviour
         {
             for (int y = 0; y < rows; y++)
             {
+                bool walkable = true;
                 Vector3 worldPoint = new Vector3(x * cellWidth, y * cellHeight, 0);
-                bool walkable = !Physics.CheckSphere(worldPoint, cellWidth / 2, obstacleLayer);
+                RaycastHit2D rc = Physics2D.CircleCast(worldPoint, cellHeight, Vector2.zero, obstacleLayer);
+                if (rc.collider != null)
+                {
+                    if (rc.collider.CompareTag("Building"))
+                    {
+                        walkable = false;
+                    }
+                }
+                //if (!walkable) { Debug.Log("Building"); }
                 nodes[x, y] = new Node(walkable, worldPoint, x, y);
             }
         }
@@ -66,16 +76,38 @@ public class GridMap : MonoBehaviour
     {
         int Xpos = Mathf.RoundToInt(worldPosition.x / cellWidth);
         int Ypos = Mathf.RoundToInt(worldPosition.y / cellHeight);
+        //Debug.Log(worldPosition.x + " " + worldPosition.y);
+        //Debug.Log(cellWidth + " " + cellHeight);
+        //Debug.Log(Xpos + " " + Ypos);
         return nodes[Xpos, Ypos];
     }
 
     public List<Node> GetPath(Vector3 startPos, Vector3 endPos)
     {
+        if (cellWidth == 0 && cellHeight  == 0)
+        {
+            return null;
+        }
+
         Node startNode = getNearestNode(startPos);
         Node endNode = getNearestNode(endPos);
 
+        if (!endNode.walkable)
+        {
+            return null;
+        }
+
         List<Node> openList = new List<Node>();
-        List<Node> closedList = new List<Node>();
+        bool[,] closedList = new bool[columns, rows];
+        int[,] distances = new int[columns, rows];
+
+        for (int i = 0; i < columns; i++)
+        {
+            for (int j = 0; j < rows; j++)
+            {
+                distances[i, j] = int.MaxValue;
+            }
+        } 
 
         startNode.cost = 0;
         startNode.parent = startNode;
@@ -88,36 +120,74 @@ public class GridMap : MonoBehaviour
             Node currentNode = openList[0];
             openList.RemoveAt(0);
 
+            closedList[currentNode.gridX, currentNode.gridY] = true;
+
             for (int i = -1; i <= 1; i++)
             {
                 for (int j = -1; j <= 1; j++)
                 {
                     if (!(i == 0 && j == 0))
                     {
-                        if (nodes[currentNode.gridX+i, currentNode.gridY+j] == endNode)
+                        //Debug.Log(currentNode.gridX + " " + currentNode.gridY);
+                        Node neighbor = nodes[currentNode.gridX + i, currentNode.gridY + j];
+                        if (neighbor.walkable)
                         {
-                            return TracePath();
-                        }
+                            if (neighbor == endNode)
+                            {
+                                return TracePath(endNode);
+                            }
 
+                            if (!closedList[neighbor.gridX, neighbor.gridY] && neighbor.walkable)
+                            {
+                                neighbor.cost =
+                                GetDistance(currentNode, nodes[currentNode.gridX + i, currentNode.gridY + j]) +
+                                GetDistance(endNode, nodes[currentNode.gridX + i, currentNode.gridY + j]);
+
+                                if (distances[neighbor.gridX, neighbor.gridY] == int.MaxValue ||
+                                    neighbor.cost < distances[neighbor.gridX, neighbor.gridY])
+                                {
+
+                                    distances[neighbor.gridX, neighbor.gridY] = neighbor.cost;
+                                    neighbor.parent = currentNode;
+                                    nodes[currentNode.gridX + i, currentNode.gridY + j] = neighbor;
+                                    openList.Add(neighbor);
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
 
-
-        return new List<Node>();
-    }
-
-    public List<Node> TracePath()
-    {
         return null;
     }
 
-    float CalculateCost(Node n)
+    public List<Node> TracePath(Node endNode)
     {
-        return 0;
+        List<Node> nodeList = new List<Node>();
+        nodeList.Add(endNode);
+
+        Node current = endNode;
+
+        while (current.parent != null && current.parent != current)
+        {
+            Debug.DrawLine(current.worldPosition, current.parent.worldPosition, Color.blue, 0.5f);
+            current = current.parent;
+            nodeList.Add(current);
+        }
+
+        nodeList.Reverse();
+
+        return nodeList;
     }
 
+    int GetDistance(Node nodeA, Node nodeB)
+    {
+        int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
+        int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
+
+        return dstX + dstY;
+    }
 
     private void OnDrawGizmos()
     {
@@ -127,7 +197,7 @@ public class GridMap : MonoBehaviour
             {
                 for (int y = 0; y < rows; y++)
                 {
-                    Gizmos.color = Color.blue;
+                    Gizmos.color = nodes[x, y].walkable ? Color.blue : Color.red;
                     Gizmos.DrawSphere(nodes[x, y].worldPosition, 0.1f);
                 }
             }

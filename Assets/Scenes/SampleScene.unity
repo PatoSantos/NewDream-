@@ -1586,7 +1586,6 @@ GameObject:
   - component: {fileID: 510546067}
   - component: {fileID: 510546066}
   - component: {fileID: 510546065}
-  - component: {fileID: 510546069}
   m_Layer: 5
   m_Name: wineBottle1
   m_TagString: Untagged
@@ -2463,7 +2462,6 @@ GameObject:
   - component: {fileID: 638552733}
   - component: {fileID: 638552732}
   - component: {fileID: 638552731}
-  - component: {fileID: 638552734}
   m_Layer: 5
   m_Name: wineBottle7
   m_TagString: Untagged
@@ -2535,7 +2533,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638552734}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -3660,7 +3658,6 @@ GameObject:
   - component: {fileID: 861784929}
   - component: {fileID: 861784928}
   - component: {fileID: 861784927}
-  - component: {fileID: 861784930}
   m_Layer: 5
   m_Name: wineBottle4
   m_TagString: Untagged
@@ -3732,7 +3729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 861784930}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -4376,7 +4373,6 @@ GameObject:
   - component: {fileID: 974620363}
   - component: {fileID: 974620362}
   - component: {fileID: 974620361}
-  - component: {fileID: 974620364}
   m_Layer: 5
   m_Name: wineBottle2
   m_TagString: Untagged
@@ -4448,7 +4444,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 974620364}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -5046,7 +5042,6 @@ GameObject:
   - component: {fileID: 1131886799}
   - component: {fileID: 1131886798}
   - component: {fileID: 1131886797}
-  - component: {fileID: 1131886800}
   m_Layer: 5
   m_Name: wineBottle5
   m_TagString: Untagged
@@ -5118,7 +5113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1131886800}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -5465,7 +5460,7 @@ GameObject:
   - component: {fileID: 1286583417}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6731,7 +6726,6 @@ GameObject:
   - component: {fileID: 1641659015}
   - component: {fileID: 1641659014}
   - component: {fileID: 1641659013}
-  - component: {fileID: 1641659016}
   m_Layer: 5
   m_Name: wineBottle3
   m_TagString: Untagged
@@ -6803,7 +6797,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1641659016}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -6883,7 +6877,7 @@ GameObject:
   - component: {fileID: 1665441533}
   m_Layer: 0
   m_Name: Wendigo
-  m_TagString: Untagged
+  m_TagString: Wendigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6963,8 +6957,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1286583416}
-  lastPos: {x: 0, y: 0, z: 0}
-  detour: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  next: {x: 0, y: 0, z: 0}
   speed: 5
   obstacleLayer:
     serializedVersion: 2
@@ -6972,6 +6966,8 @@ MonoBehaviour:
   lookingAtPlayer: 0
   positionTolerance: 1
   cv: {fileID: 0}
+  state: 0
+  timerInterval: 0.5
 --- !u!212 &1665441536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7033,7 +7029,7 @@ Transform:
   m_GameObject: {fileID: 1665441532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.6, y: 20.4, z: 0}
+  m_LocalPosition: {x: 75.63, y: 37.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7470,37 +7466,6 @@ RectTransform:
   m_AnchoredPosition: {x: 830, y: 465}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1728713666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1728713667}
-  m_Layer: 0
-  m_Name: BottomRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1728713667
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728713666}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32, y: -18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1932177997}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733144144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7646,6 +7611,7 @@ GameObject:
   - component: {fileID: 1749370265}
   - component: {fileID: 1749370264}
   - component: {fileID: 1749370266}
+  - component: {fileID: 1749370267}
   m_Layer: 6
   m_Name: Building
   m_TagString: Building
@@ -7765,6 +7731,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1749370267
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749370263}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1772408448
 GameObject:
   m_ObjectHideFlags: 3
@@ -8560,7 +8553,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1703542013}
-  - {fileID: 1728713667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1932177998
@@ -8575,7 +8567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95659de403a38ed48b74ade781bccd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  top: {fileID: 0}
+  top: {fileID: 1703542013}
   columns: 50
   rows: 30
   cellWidth: 0
@@ -8862,7 +8854,6 @@ GameObject:
   - component: {fileID: 1988748678}
   - component: {fileID: 1988748677}
   - component: {fileID: 1988748676}
-  - component: {fileID: 1994247702}
   m_Layer: 5
   m_Name: wineBottle6
   m_TagString: Untagged

@@ -6,9 +6,15 @@ using UnityEngine;
 
 public class Wendigo : MonoBehaviour
 {
+    public enum State
+    {
+        PROWL,
+        FOLLOW,
+        CHASE
+    }
     public Transform target;  // The target object to follow
-    public Vector3 lastPos;
-    public Vector3 detour;
+    public Vector3 targetPosition;
+    public Vector3 next;
     public float speed = 5f;  // Speed of the following movement
     Rigidbody2D rb;
     public LayerMask obstacleLayer;
@@ -16,59 +22,127 @@ public class Wendigo : MonoBehaviour
     public float positionTolerance = 1;
     public CollisionVision cv;
     Vector3 direction;
+    public State state;
 
     private GridMap grid;
     private List<GridMap.Node> path;
     private int targetIndex;
+
+    Vector2 directionToTarget;
+    RaycastHit2D hit;
+    public float timerInterval = 0.5f; // Timer interval in seconds
+    private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         grid = FindObjectOfType<GridMap>();
-        StartCoroutine(UpdatePath());
+        targetPosition = target.position;
+        state = State.PROWL;
     }
 
-    IEnumerator UpdatePath()
-    {
-        while (true)
-        {
-            path = grid.GetPath(transform.position, lastPos);
-            Debug.Log(path != null);
-            targetIndex = 0;
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
+   
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (PlayerVisible())
+        switch (state)
         {
-            lastPos = target.transform.position;
-            direction = lastPos - transform.position;
-            direction.Normalize();
-            rb.velocity = direction * speed;
+            case State.PROWL:
+                if (path == null)
+                {
+                    do
+                    {
+                        targetPosition = new Vector3(UnityEngine.Random.Range(20.0f, 80.0f), UnityEngine.Random.Range(10.0f, 40.0f));
+                        hit = Physics2D.CircleCast(targetPosition, grid.cellHeight, Vector2.zero, obstacleLayer);
+                    } while (hit.collider != null && hit.collider.CompareTag("Building"));
+                    Debug.Log("Next pos: " + targetPosition);
+                    UpdatePath();
+                }
+                Debug.Log("TargetIndex: " + targetIndex);
+                next = path[targetIndex].worldPosition;
+                direction = next - transform.position;
+                direction.Normalize();
+                rb.velocity = direction * speed;
+                if (Vector3.Distance(transform.position, next) <= 0.15f)
+                {
+                    targetIndex++;
+                }
+                if (Vector3.Distance(transform.position, targetPosition) <= 0.15f || targetIndex >= path.Count)
+                {
+                    do
+                    {
+                        targetPosition = new Vector3(UnityEngine.Random.Range(20.0f, 80.0f), UnityEngine.Random.Range(10.0f, 40.0f));
+                        hit = Physics2D.CircleCast(targetPosition, grid.cellHeight, Vector2.zero, obstacleLayer);
+                    } while (hit.collider != null && hit.collider.CompareTag("Building"));
+                    UpdatePath();
+                }
+                break;
+            case State.FOLLOW:
+                next = path[targetIndex > path.Count ? path.Count - 1 : targetIndex].worldPosition;
+                direction = next - transform.position;
+                direction.Normalize();
+                rb.velocity = direction * speed;
+                if (Vector3.Distance(transform.position, next) <= 0.15f)
+                {
+                    targetIndex++;
+                }
+                if (Vector3.Distance(transform.position, targetPosition) <= 0.15f)
+                {
+                    do
+                    {
+                        targetPosition = new Vector3(UnityEngine.Random.Range(20.0f, 80.0f), UnityEngine.Random.Range(10.0f, 40.0f));
+                        hit = Physics2D.CircleCast(targetPosition, grid.cellHeight, Vector2.zero, obstacleLayer);
+                    } while (hit.collider != null && hit.collider.CompareTag("Building"));
+                    UpdatePath();
+                    state = State.PROWL;
+                    Debug.Log(state);
+                }
+                break;
+
+            case State.CHASE:
+                next = path[targetIndex > path.Count ? path.Count - 1 : targetIndex].worldPosition;
+                direction = next - transform.position;
+                direction.Normalize();
+                rb.velocity = direction * speed;
+                if (Vector3.Distance(transform.position, next) <= 0.15f)
+                {
+                    targetIndex++;
+                }
+                if (Vector3.Distance(target.position, targetPosition) > 0.15f)
+                {
+                    targetPosition = target.position;
+                    UpdatePath();
+                }
+                break;
         }
-        else
+        UpdateWendigo();
+    }
+
+    private void UpdateWendigo()
+    {
+        /*directionToTarget = target.position - transform.position;
+        hit = Physics2D.Raycast(transform.position, directionToTarget, directionToTarget.magnitude, obstacleLayer);
+        Debug.DrawLine(transform.position, target.position, hit.collider == null ? Color.green : Color.red);
+        if (hit.collider != null && state == State.CHASE)
         {
-            //Debug.Log("Looking for player");
-            LookForPlayer();
+            state = State.FOLLOW;
         }
-        // Calculate the direction to the target
-        
-
-        // Calculate the step size based on speed and delta time
-        //float step = speed * Time.deltaTime;
-
-        // Move the object towards the target
-        //transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        
-
-        if (Vector3.Distance(transform.position, lastPos) <= positionTolerance)
+        else if (hit.collider == null && state != State.CHASE)
         {
-            MoveRandom();
-        }
+            state = State.CHASE;
+            targetPosition = target.position;
+            UpdatePath();
+        }*/
+    }
+
+    void UpdatePath()
+    {
+        path = grid.GetPath(transform.position, targetPosition);
+        Debug.Log(path[0].worldPosition);
+        targetIndex = 0;
+        //yield return new WaitForSeconds(0.5f);
     }
 
     bool PlayerVisible()
@@ -88,7 +162,7 @@ public class Wendigo : MonoBehaviour
         {
             if (lookingAtPlayer)
             {
-                lastPos += hit.transform.position;
+                //lastPos += hit.transform.position;
             }
             lookingAtPlayer = false;
         }
@@ -103,7 +177,7 @@ public class Wendigo : MonoBehaviour
 
     public void MoveRandom()
     {
-        Debug.Log("Lost player...");
+        //Debug.Log("Lost player...");
         rb.velocity = Vector3.zero;
     }
 
@@ -112,20 +186,22 @@ public class Wendigo : MonoBehaviour
         //Debug.Log(targetIndex + " " + path.Count);
         if (path != null && targetIndex < path.Count)
         {
-
+            this.targetPosition = target.transform.position;
             Vector3 targetPosition = path[targetIndex].worldPosition;
             float step = speed * Time.deltaTime;
             //transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
             direction = targetPosition - transform.position;
             direction.Normalize();
             rb.velocity = direction * speed;
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            if (Vector3.Distance(transform.position, targetPosition) < 0.15f)
             {
                 targetIndex++;
             }
         } else
         {
-            rb.velocity = Vector3.zero;
+            direction = targetPosition - transform.position;
+            direction.Normalize();
+            rb.velocity = direction * speed;
         }
         /*if (cv.isNearBuilding())
         {
