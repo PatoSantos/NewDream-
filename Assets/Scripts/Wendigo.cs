@@ -54,7 +54,7 @@ public class Wendigo : MonoBehaviour
                 {
                     do
                     {
-                        targetPosition = new Vector3(UnityEngine.Random.Range(20.0f, 80.0f), UnityEngine.Random.Range(10.0f, 40.0f));
+                        targetPosition = new Vector3(UnityEngine.Random.Range(10.0f, 90.0f), UnityEngine.Random.Range(5.0f, 45.0f));
                         hit = Physics2D.CircleCast(targetPosition, grid.cellHeight, Vector2.zero, obstacleLayer);
                     } while (hit.collider != null && hit.collider.CompareTag("Building"));
                     //Debug.Log("Next pos: " + targetPosition);
