@@ -2424,7 +2424,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 510546068}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -2486,9 +2486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 4
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &518331813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,7 +3301,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 638552734}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -3363,9 +3363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 4
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &670604190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4575,7 +4575,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 861784930}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -4637,9 +4637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 4
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &898922057
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,9 +4944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 3
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 7001406189100461753, guid: e26676920b0fa4581b0687223f938596, type: 3}
 --- !u!1 &907412928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5130,9 +5130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 7
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 7151189260636582470, guid: c01eb6d04bea142618e3ad21a0272f33, type: 3}
 --- !u!1 &938073880
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,7 +5487,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 974620364}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -5549,9 +5549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 4
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &997330652
 GameObject:
   m_ObjectHideFlags: 0
@@ -6331,7 +6331,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1131886800}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -6393,9 +6393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 4
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &1156297267
 GameObject:
   m_ObjectHideFlags: 0
@@ -7696,9 +7696,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 7
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 7151189260636582470, guid: c01eb6d04bea142618e3ad21a0272f33, type: 3}
 --- !u!1 &1384962686
 GameObject:
   m_ObjectHideFlags: 0
@@ -8810,7 +8810,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1641659016}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -8872,9 +8872,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 4
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &1665441532
 GameObject:
   m_ObjectHideFlags: 0
@@ -11684,7 +11684,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1988748679}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -11746,9 +11746,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 0
+  clickingLimit: 4
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &1991363989
 GameObject:
   m_ObjectHideFlags: 0
