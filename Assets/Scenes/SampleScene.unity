@@ -7626,7 +7626,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: bdbe700c5489a7740a48039ea71a7d63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e99740486e6cef14388f3336176d54ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10050,6 +10050,7 @@ MonoBehaviour:
   activePanel: {fileID: 0}
   isPanelActive: 0
   gameOverPanel: {fileID: 7889039}
+  gameOverInterval: 1
 --- !u!4 &1808943117
 Transform:
   m_ObjectHideFlags: 0
@@ -11962,12 +11963,6 @@ SceneRoots:
   - {fileID: 1665441537}
   - {fileID: 27461303}
   - {fileID: 1932177997}
-  - {fileID: 1749370265}
-  - {fileID: 898922061}
-  - {fileID: 448965001}
-  - {fileID: 1991363993}
-  - {fileID: 1434256753}
-  - {fileID: 236207525}
   - {fileID: 1012042893}
   - {fileID: 1887471403}
   - {fileID: 1295012520}
@@ -11977,7 +11972,10 @@ SceneRoots:
   - {fileID: 1846583591}
   - {fileID: 1786610851}
   - {fileID: 1808943117}
-  - {fileID: 1913362504}
-  - {fileID: 1837191154}
-  - {fileID: 1300641971}
-  - {fileID: 423294779}
+  - {fileID: 1171223403}
+  - {fileID: 1749370265}
+  - {fileID: 898922061}
+  - {fileID: 448965001}
+  - {fileID: 1991363993}
+  - {fileID: 1434256753}
+  - {fileID: 236207525}
