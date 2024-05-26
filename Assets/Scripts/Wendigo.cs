@@ -58,7 +58,11 @@ public class Wendigo : MonoBehaviour
                         hit = Physics2D.CircleCast(targetPosition, grid.cellHeight, Vector2.zero, obstacleLayer);
                     } while (hit.collider != null && hit.collider.CompareTag("Building"));
                     Debug.Log("Next pos: " + targetPosition);
-                    UpdatePath();
+                    do
+                    {
+                        UpdatePath();
+                    } while (path[0].worldPosition == targetPosition);
+
                 }
                 Debug.Log("TargetIndex: " + targetIndex);
                 next = path[targetIndex].worldPosition;

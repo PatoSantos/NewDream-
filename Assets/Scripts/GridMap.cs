@@ -86,7 +86,9 @@ public class GridMap : MonoBehaviour
     {
         if (cellWidth == 0 && cellHeight  == 0)
         {
-            return null;
+            List<Node> nullNode = new List<Node>();
+            nullNode.Add(new Node(true,startPos,0,0));
+            return nullNode;
         }
 
         Node startNode = getNearestNode(startPos);
@@ -134,6 +136,8 @@ public class GridMap : MonoBehaviour
                         {
                             if (neighbor == endNode)
                             {
+                                neighbor.parent = currentNode;
+                                nodes[currentNode.gridX + i, currentNode.gridY + j] = neighbor;
                                 return TracePath(endNode);
                             }
 
@@ -171,7 +175,7 @@ public class GridMap : MonoBehaviour
 
         while (current.parent != null && current.parent != current)
         {
-            Debug.DrawLine(current.worldPosition, current.parent.worldPosition, Color.blue, 0.5f);
+            Debug.DrawLine(current.worldPosition, current.parent.worldPosition, Color.blue, 2f);
             current = current.parent;
             nodeList.Add(current);
         }
