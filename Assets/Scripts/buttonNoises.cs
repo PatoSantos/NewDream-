@@ -11,13 +11,12 @@ public class ButtonNoises : MonoBehaviour
     void Start()
     {
         clickingTimes = 0;
-        noise = GetComponent<AudioSource>();
     }
 
     public void onClickNoise()
     {
         clickingTimes++;
-        if(clickingTimes == clickingLimit)
+        if(clickingTimes >= clickingLimit)
         {
             noise.Play();
             clickingTimes = 0;
