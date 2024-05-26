@@ -30,6 +30,7 @@ public class Building : MonoBehaviour
             buildingPanel.SetActive(true);
             GameManager.Instance.isPanelActive = true;
             GameManager.Instance.activePanel = buildingPanel;
+            AlertHandler.Instance.Initialize();
         }
     }
 

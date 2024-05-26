@@ -10,7 +10,8 @@ public class Wendigo : MonoBehaviour
     {
         PROWL,
         FOLLOW,
-        CHASE
+        CHASE,
+        INACTIVE
     }
     public Transform target;  // The target object to follow
     public Vector3 targetPosition;
@@ -124,24 +125,39 @@ public class Wendigo : MonoBehaviour
                     UpdatePath();
                 }
                 break;
+            case State.INACTIVE:
+                rb.velocity = Vector3.zero;
+                break;
         }
         UpdateWendigo();
     }
 
     private void UpdateWendigo()
     {
-        directionToTarget = target.position - transform.position;
-        hit = Physics2D.Raycast(transform.position, directionToTarget, directionToTarget.magnitude, obstacleLayer);
-        Debug.DrawLine(transform.position, target.position, hit.collider == null ? Color.green : Color.red);
-        if (hit.collider != null && state == State.CHASE)
+        if (GameManager.Instance.isPanelActive)
         {
-            state = State.FOLLOW;
+            state = State.INACTIVE;
         }
-        else if (hit.collider == null && state != State.CHASE)
+        else
         {
-            state = State.CHASE;
-            targetPosition = target.position;
-            UpdatePath();
+            if (state == State.INACTIVE)
+            {
+                state = State.PROWL;
+                path = null;
+            }
+            directionToTarget = target.position - transform.position;
+            hit = Physics2D.Raycast(transform.position, directionToTarget, directionToTarget.magnitude, obstacleLayer);
+            Debug.DrawLine(transform.position, target.position, hit.collider == null ? Color.green : Color.red);
+            if (hit.collider != null && state == State.CHASE)
+            {
+                state = State.FOLLOW;
+            }
+            else if (hit.collider == null && state != State.CHASE)
+            {
+                state = State.CHASE;
+                targetPosition = target.position;
+                UpdatePath();
+            }
         }
     }
 
@@ -227,5 +243,13 @@ public class Wendigo : MonoBehaviour
         {
             cv.nearBuilding = false;
         }*/
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
