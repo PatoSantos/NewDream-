@@ -9,9 +9,13 @@ public class GameManager : MonoBehaviour
     public bool isPanelActive = false;
     public GameObject gameOverPanel;
 
-    public float gameOverInterval = 1.5f; // Timer interval in seconds
+    public float gameOverInterval = 2.0f; // Timer interval in seconds
     private float timer = 0f;
-    private bool isGameOver = false;
+    public bool isGameOver = false;
+
+    AudioSource audioManager;
+    public AudioClip wendigoScream;
+    public AudioClip cowboyScream;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +29,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        audioManager = GetComponent<AudioSource>();
         gameOverPanel.SetActive(false);
         isGameOver = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isGameOver)
         {
@@ -60,9 +65,22 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (!isGameOver)
+        {
+            gameOverPanel.SetActive(true);
+            isGameOver = true;
+            audioManager.volume = 1.0f;
+            audioManager.clip = cowboyScream;
+            audioManager.Play();
+        }
         //Time.timeScale = 0.0f;
-        gameOverPanel.SetActive(true);
-        isGameOver=true;
+        
         //Debug.LogWarning("YOURE DEAD!!!");
+    }
+
+    public void PlayScream()
+    {
+        audioManager.clip = wendigoScream;
+        audioManager.Play();
     }
 }

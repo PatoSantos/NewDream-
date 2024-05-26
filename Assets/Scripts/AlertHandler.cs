@@ -14,6 +14,8 @@ public class AlertHandler : MonoBehaviour
     public float timerInterval = 3.0f; // Timer interval in seconds
     private float timer = 0f;
 
+    public bool inChase = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,10 +43,16 @@ public class AlertHandler : MonoBehaviour
         }
     }
 
-    public void Initialize()
+    public void Initialize(bool inChase)
     {
+        this.inChase = inChase;
         alertCounter = 0;
         onAlert = false;
+        if (inChase)
+        {
+            
+            StartAlert();
+        }
     }
 
     public void StartAlert()
@@ -76,7 +84,7 @@ public class AlertHandler : MonoBehaviour
         {
             Debug.Log("Noise made!");
             alertCounter++;
-            if (alertCounter >= counterTolerance)
+            if (alertCounter >= counterTolerance && !onAlert)
             {
                 StartAlert();
             }
