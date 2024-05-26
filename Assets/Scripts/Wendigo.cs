@@ -156,7 +156,7 @@ public class Wendigo : MonoBehaviour
             directionToTarget = target.position - transform.position;
             hit = Physics2D.Raycast(transform.position, directionToTarget, visionRange, LayerMask.GetMask(layerMasks));
             Debug.DrawLine(transform.position, target.position, hit.collider == null ? Color.green : Color.red);
-            if (hit.collider != null) { Debug.Log(hit.collider.tag); }
+            //if (hit.collider != null) { Debug.Log(hit.collider.tag); }
             if (hit.collider != null && hit.collider.CompareTag("Building") && state == State.CHASE)
             {
                 state = State.FOLLOW;
@@ -195,7 +195,7 @@ public class Wendigo : MonoBehaviour
     {
         List<GridMap.Node> tempPath = grid.GetPath(transform.position, targetPosition);
         path = tempPath != null ? tempPath : path;
-        Debug.Log(path[0].worldPosition);
+        //Debug.Log(path[0].worldPosition);
         targetIndex = 0;
         //yield return new WaitForSeconds(0.5f);
     }   

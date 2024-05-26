@@ -50,7 +50,6 @@ public class AlertHandler : MonoBehaviour
         onAlert = false;
         if (inChase)
         {
-            
             StartAlert();
         }
     }

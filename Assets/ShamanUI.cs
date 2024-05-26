@@ -31,6 +31,14 @@ public class ShamanUI : MonoBehaviour
         OpenMenu();
     }
 
+    private void FixedUpdate()
+    {
+        if (AlertHandler.Instance.onAlert || AlertHandler.Instance.inChase)
+        {
+            Alarm.SetActive(true);
+        }
+    }
+
     public void OpenMenu()
     {
         num1 = 0;

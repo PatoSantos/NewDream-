@@ -30,7 +30,9 @@ public class Building : MonoBehaviour
             buildingPanel.SetActive(true);
             GameManager.Instance.isPanelActive = true;
             GameManager.Instance.activePanel = buildingPanel;
-            AlertHandler.Instance.Initialize();
+            bool inChase = FindObjectOfType<Wendigo>().state == Wendigo.State.CHASE ||
+                FindObjectOfType<Wendigo>().state == Wendigo.State.FOLLOW;
+            AlertHandler.Instance.Initialize(inChase);
         }
     }
 

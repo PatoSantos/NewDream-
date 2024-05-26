@@ -30,5 +30,9 @@ public class Player : MonoBehaviour
             // Apply the new position to the object's transform
             //transform.position += newPosition;
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 }
