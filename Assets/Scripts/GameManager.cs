@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public bool isPanelActive = false;
     public GameObject gameOverPanel;
 
+    public float gameOverInterval = 1.5f; // Timer interval in seconds
+    private float timer = 0f;
+    private bool isGameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +26,22 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         gameOverPanel.SetActive(false);
+        isGameOver = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isGameOver)
+        {
+            timer += Time.fixedDeltaTime;
+
+            if (timer >= gameOverInterval)
+            {
+                Debug.Log("quitting");
+                Application.Quit();
+            }
+        }
         if (isPanelActive && Input.GetKey(KeyCode.Escape))
         {
             ExitPanel();
@@ -45,8 +60,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0.0f;
+        //Time.timeScale = 0.0f;
         gameOverPanel.SetActive(true);
-        Debug.LogWarning("YOURE DEAD!!!");
+        isGameOver=true;
+        //Debug.LogWarning("YOURE DEAD!!!");
     }
 }
