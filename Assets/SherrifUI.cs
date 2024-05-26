@@ -22,6 +22,14 @@ public class SherrifUI : MonoBehaviour
         OpenMenu();
     }
 
+    private void FixedUpdate()
+    {
+        if (AlertHandler.Instance.onAlert || AlertHandler.Instance.inChase)
+        {
+            Alarm.SetActive(true);
+        }
+    }
+
     public void OpenMenu()
     {
         missClickCount = 0;
@@ -38,6 +46,8 @@ public class SherrifUI : MonoBehaviour
     {
         //Building.SetActive(false);
         GameManager.Instance.ExitPanel();
+        AlertHandler.Instance.EndAlert();
+        Alarm.SetActive(false);
     }
 
     public void C1_Open()
@@ -74,8 +84,9 @@ public class SherrifUI : MonoBehaviour
 
     public void MissClick()
     {
-        missClickCount++;
-        if (missClickCount >= 3) {
+        AlertHandler.Instance.RegisterClick(.7f);
+        if (AlertHandler.Instance.onAlert)
+        {
             Alarm.SetActive(true);
         }
     }

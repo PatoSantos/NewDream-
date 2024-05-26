@@ -63,6 +63,10 @@ public class AlertHandler : MonoBehaviour
     public void EndAlert()
     {
         onAlert = false;
+        if (inChase)
+        {
+            FindObjectOfType<Wendigo>().state = Wendigo.State.CHASE;
+        }
     }
 
     public void RegisterClick(float noiseChance)

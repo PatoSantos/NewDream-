@@ -64,6 +64,7 @@ public class ShamanUI : MonoBehaviour
         //Building.SetActive(false);
         GameManager.Instance.ExitPanel();
         AlertHandler.Instance.EndAlert();
+        Alarm.SetActive(false);
     }
 
     public void Caja_Open()
