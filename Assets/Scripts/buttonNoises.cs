@@ -4,13 +4,16 @@ using UnityEngine.UI;
 
 public class ButtonNoises : MonoBehaviour
 {
-    [SerializeField]private int clickingTimes;
+    private int clickingTimes;
     public int clickingLimit;
     [SerializeField]private AudioSource noise;
+    public GameObject soundBoxPrefab;
     // Start is called before the first frame update
     void Start()
     {
         clickingTimes = 0;
+        GameObject spawnedSoundBox = Instantiate(soundBoxPrefab, transform.position, Quaternion.identity);
+        noise = spawnedSoundBox.GetComponent<AudioSource>();
     }
 
     public void onClickNoise()

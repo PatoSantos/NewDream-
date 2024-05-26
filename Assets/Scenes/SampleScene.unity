@@ -1355,8 +1355,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 510546069}
-        m_TargetAssemblyTypeName: buttonNoises, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
+        m_MethodName: onClickNoise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1418,7 +1418,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -3912214844802463587, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &519228533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -3912214844802463587, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &670604190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,7 +3089,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -3912214844802463587, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &903872209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,7 +3239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -960314121625180574, guid: e26676920b0fa4581b0687223f938596, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 7001406189100461753, guid: e26676920b0fa4581b0687223f938596, type: 3}
 --- !u!1 &925898123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,7 +3388,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 6
-  noise: {fileID: 6170609195033070767, guid: c01eb6d04bea142618e3ad21a0272f33, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 7001406189100461753, guid: e26676920b0fa4581b0687223f938596, type: 3}
 --- !u!1 &974620359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,7 +3538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -3912214844802463587, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &1012042891
 GameObject:
   m_ObjectHideFlags: 0
@@ -4070,7 +4076,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -3912214844802463587, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &1156297267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4703,7 +4710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 7
-  noise: {fileID: 6170609195033070767, guid: c01eb6d04bea142618e3ad21a0272f33, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 7151189260636582470, guid: c01eb6d04bea142618e3ad21a0272f33, type: 3}
 --- !u!1 &1387947022
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,7 +5616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -3912214844802463587, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &1665441532
 GameObject:
   m_ObjectHideFlags: 0
@@ -7094,7 +7103,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1994247702}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -7194,7 +7203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickingTimes: 0
   clickingLimit: 5
-  noise: {fileID: -3912214844802463587, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &2083205606
 GameObject:
   m_ObjectHideFlags: 0
