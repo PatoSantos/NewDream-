@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject activePanel;
     public bool isPanelActive = false;
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        gameOverPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,7 +29,8 @@ public class GameManager : MonoBehaviour
     {
         if (isPanelActive && Input.GetKey(KeyCode.Escape))
         {
-            
+            ExitPanel();
+            AlertHandler.Instance.EndAlert();
         }
     }
 
@@ -38,5 +41,12 @@ public class GameManager : MonoBehaviour
             activePanel.gameObject.SetActive(false);
         }
         isPanelActive = false;
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0.0f;
+        gameOverPanel.SetActive(true);
+        Debug.LogWarning("YOURE DEAD!!!");
     }
 }

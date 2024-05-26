@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShamanUI : MonoBehaviour
 {
-    private int missClickCount;
     [Header("Menu Basics")]
     [SerializeField] private GameObject Building;
     [SerializeField] private GameObject ExitButton;
@@ -34,7 +33,6 @@ public class ShamanUI : MonoBehaviour
 
     public void OpenMenu()
     {
-        missClickCount = 0;
         num1 = 0;
         num2 = 0;
         num3 = 0;
@@ -57,6 +55,7 @@ public class ShamanUI : MonoBehaviour
     {
         //Building.SetActive(false);
         GameManager.Instance.ExitPanel();
+        AlertHandler.Instance.EndAlert();
     }
 
     public void Caja_Open()
@@ -164,8 +163,8 @@ public class ShamanUI : MonoBehaviour
 
     public void MissClick()
     {
-        missClickCount++;
-        if (missClickCount >= 3)
+        AlertHandler.Instance.RegisterClick(.7f);
+        if (AlertHandler.Instance.onAlert)
         {
             Alarm.SetActive(true);
         }
