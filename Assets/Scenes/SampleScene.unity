@@ -1586,6 +1586,7 @@ GameObject:
   - component: {fileID: 510546067}
   - component: {fileID: 510546066}
   - component: {fileID: 510546065}
+  - component: {fileID: 510546068}
   m_Layer: 5
   m_Name: wineBottle1
   m_TagString: Untagged
@@ -1657,7 +1658,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 510546069}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -1707,7 +1708,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510546063}
   m_CullTransparentMesh: 1
---- !u!114 &510546069
+--- !u!114 &510546068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1719,9 +1720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 5
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &518331813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2463,7 @@ GameObject:
   - component: {fileID: 638552733}
   - component: {fileID: 638552732}
   - component: {fileID: 638552731}
+  - component: {fileID: 638552734}
   m_Layer: 5
   m_Name: wineBottle7
   m_TagString: Untagged
@@ -2595,9 +2597,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 5
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &670604190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3660,7 @@ GameObject:
   - component: {fileID: 861784929}
   - component: {fileID: 861784928}
   - component: {fileID: 861784927}
+  - component: {fileID: 861784930}
   m_Layer: 5
   m_Name: wineBottle4
   m_TagString: Untagged
@@ -3791,9 +3794,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 5
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &903872209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3940,9 +3943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 5
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 7001406189100461753, guid: e26676920b0fa4581b0687223f938596, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &925898123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,9 +4091,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 6
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 7001406189100461753, guid: e26676920b0fa4581b0687223f938596, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &938073880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4373,6 +4376,7 @@ GameObject:
   - component: {fileID: 974620363}
   - component: {fileID: 974620362}
   - component: {fileID: 974620361}
+  - component: {fileID: 974620364}
   m_Layer: 5
   m_Name: wineBottle2
   m_TagString: Untagged
@@ -4506,9 +4510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 5
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &1012042891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,6 +5046,7 @@ GameObject:
   - component: {fileID: 1131886799}
   - component: {fileID: 1131886798}
   - component: {fileID: 1131886797}
+  - component: {fileID: 1131886800}
   m_Layer: 5
   m_Name: wineBottle5
   m_TagString: Untagged
@@ -5175,9 +5180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 5
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &1156297267
 GameObject:
   m_ObjectHideFlags: 0
@@ -5953,9 +5958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 7
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 7151189260636582470, guid: c01eb6d04bea142618e3ad21a0272f33, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &1387947022
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,6 +6731,7 @@ GameObject:
   - component: {fileID: 1641659015}
   - component: {fileID: 1641659014}
   - component: {fileID: 1641659013}
+  - component: {fileID: 1641659016}
   m_Layer: 5
   m_Name: wineBottle3
   m_TagString: Untagged
@@ -6859,9 +6865,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickingLimit: 5
+  clickingLimit: 0
   noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &1665441532
 GameObject:
   m_ObjectHideFlags: 0
@@ -8854,6 +8860,7 @@ GameObject:
   - component: {fileID: 1988748678}
   - component: {fileID: 1988748677}
   - component: {fileID: 1988748676}
+  - component: {fileID: 1988748679}
   m_Layer: 5
   m_Name: wineBottle6
   m_TagString: Untagged
@@ -8925,7 +8932,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1994247702}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonNoises, Assembly-CSharp
         m_MethodName: onClickNoise
         m_Mode: 1
@@ -8975,6 +8982,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988748674}
   m_CullTransparentMesh: 1
+--- !u!114 &1988748679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988748674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickingLimit: 0
+  noise: {fileID: 0}
+  soundBoxPrefab: {fileID: 0}
 --- !u!1 &1994247700
 GameObject:
   m_ObjectHideFlags: 0
@@ -9011,21 +9033,6 @@ RectTransform:
   m_AnchoredPosition: {x: -778, y: 372}
   m_SizeDelta: {x: 306.8724, y: 286}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1994247702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988748674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5d3505fc10b241079fb0fb3fa3ae0b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickingLimit: 5
-  noise: {fileID: 0}
-  soundBoxPrefab: {fileID: 5708928280544401390, guid: 70195aca2eaa646588a2b429fdc33b1d, type: 3}
 --- !u!1 &2083205606
 GameObject:
   m_ObjectHideFlags: 0
