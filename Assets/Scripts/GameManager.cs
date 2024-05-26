@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject activePanel;
     public bool isPanelActive = false;
     public GameObject gameOverPanel;
+    public GameObject endPanel;
 
     public float gameOverInterval = 2.0f; // Timer interval in seconds
     private float timer = 0f;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
             if (timer >= gameOverInterval)
             {
+                endPanel.SetActive(true);
                 Debug.Log("quitting");
                 Application.Quit();
             }

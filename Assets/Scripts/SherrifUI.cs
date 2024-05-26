@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SherrifUI : MonoBehaviour
 {
-    private int missClickCount;
     [Header("Menu Basics")]
     [SerializeField] private GameObject Building;
     [SerializeField] private GameObject ExitButton;
@@ -32,7 +31,6 @@ public class SherrifUI : MonoBehaviour
 
     public void OpenMenu()
     {
-        missClickCount = 0;
         Alarm.SetActive(false);
         MissButton.SetActive(true);
         ExitButton.SetActive(true);
